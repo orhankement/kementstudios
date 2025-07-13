@@ -1,1 +1,897 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kement Studios - Admin Panel</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FBFBFB;
+            color: #222831;
+        }
+
+        /* Login Screen */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #212121 0%, #393E46 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #212121;
+        }
+
+        .login-box img {
+            display: block;
+            margin: 0 auto 20px;
+            height: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #222831;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #DC2525;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #DC2525;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #b91f1f;
+        }
+
+        .login-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #DC2525;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .success-message {
+            color: #28a745;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Admin Panel */
+        .admin-container {
+            display: none;
+        }
+
+        .admin-header {
+            background-color: #212121;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .admin-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .admin-logo {
+            height: 40px;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .admin-nav button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .admin-nav button:hover,
+        .admin-nav button.active {
+            background-color: #DC2525;
+        }
+
+        .logout-btn {
+            background-color: #DC2525;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background-color: #b91f1f;
+        }
+
+        .admin-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .admin-section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-section h2 {
+            color: #212121;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .btn {
+            background-color: #DC2525;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b91f1f;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #222831;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #DC2525;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .file-upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .file-upload-area:hover {
+            border-color: #DC2525;
+        }
+
+        .file-upload-area.dragover {
+            border-color: #DC2525;
+            background-color: #f8f9fa;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .content-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .content-item h3 {
+            color: #212121;
+            margin-bottom: 10px;
+        }
+
+        .content-item p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #DC2525;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #DC2525;
+            transition: width 0.3s;
+        }
+
+        .image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #DC2525;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        @media (max-width: 768px) {
+            .admin-header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .admin-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <img src="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" alt="Kement Studios Logo">
+            <h1>Admin Panel</h1>
+            
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" placeholder="Admin kullanıcı adı">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Şifre</label>
+                <input type="password" id="password" placeholder="Admin şifresi">
+            </div>
+            
+            <div class="form-group">
+                <label for="githubToken">GitHub Token</label>
+                <input type="password" id="githubToken" placeholder="GitHub Personal Access Token">
+            </div>
+            
+            <button class="login-btn" onclick="login()">Giriş Yap</button>
+            
+            <div id="loginMessage"></div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-container" id="adminContainer">
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <img src="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" alt="Kement Studios Logo" class="admin-logo">
+                
+                <nav class="admin-nav">
+                    <button class="nav-btn active" onclick="showSection('dashboard')">Dashboard</button>
+                    <button class="nav-btn" onclick="showSection('pages')">Sayfalar</button>
+                    <button class="nav-btn" onclick="showSection('content')">İçerik</button>
+                    <button class="nav-btn" onclick="showSection('media')">Medya</button>
+                    <button class="nav-btn" onclick="showSection('settings')">Ayarlar</button>
+                </nav>
+                
+                <button class="logout-btn" onclick="logout()">Çıkış Yap</button>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section class="admin-section active" id="dashboard">
+                <h2>Dashboard</h2>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h3>📊 Site İstatistikleri</h3>
+                        <p>Toplam Sayfa: <span id="totalPages">5</span></p>
+                        <p>Toplam Hizmet: <span id="totalServices">5</span></p>
+                        <p>Toplam Proje: <span id="totalProjects">0</span></p>
+                    </div>
+                    <div class="content-item">
+                        <h3>🚀 Hızlı Aksiyonlar</h3>
+                        <button class="btn" onclick="showSection('pages')">Yeni Sayfa Ekle</button>
+                        <button class="btn" onclick="showSection('content')">İçerik Düzenle</button>
+                        <button class="btn" onclick="showSection('media')">Fotoğraf Yükle</button>
+                    </div>
+                    <div class="content-item">
+                        <h3>📈 Son Güncelleme</h3>
+                        <p id="lastUpdate">Sistem yükleniyor...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pages Section -->
+            <section class="admin-section" id="pages">
+                <h2>Sayfa Yönetimi</h2>
+                <button class="btn" onclick="openModal('pageModal')">Yeni Sayfa Ekle</button>
+                
+                <div class="content-grid" id="pagesList">
+                    <div class="loading show">
+                        <div class="spinner"></div>
+                        <p>Sayfalar yükleniyor...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section class="admin-section" id="content">
+                <h2>İçerik Yönetimi</h2>
+                
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h3>🏠 Anasayfa İçeriği</h3>
+                        <button class="btn" onclick="editHomeContent()">Düzenle</button>
+                    </div>
+                    <div class="content-item">
+                        <h3>ℹ️ Hakkımızda</h3>
+                        <button class="btn" onclick="editAboutContent()">Düzenle</button>
+                    </div>
+                    <div class="content-item">
+                        <h3>🛠️ Hizmetler</h3>
+                        <button class="btn" onclick="editServicesContent()">Düzenle</button>
+                    </div>
+                    <div class="content-item">
+                        <h3>📁 Projeler</h3>
+                        <button class="btn" onclick="editProjectsContent()">Düzenle</button>
+                    </div>
+                    <div class="content-item">
+                        <h3>📞 İletişim</h3>
+                        <button class="btn" onclick="editContactContent()">Düzenle</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Media Section -->
+            <section class="admin-section" id="media">
+                <h2>Medya Yönetimi</h2>
+                
+                <div class="file-upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" style="display: none" accept="image/*" multiple onchange="handleFileSelect(event)">
+                    <p>📁 Fotoğrafları buraya sürükleyin veya tıklayın</p>
+                    <p>Desteklenen formatlar: JPG, PNG, GIF, WebP</p>
+                </div>
+                
+                <div class="progress-bar" id="uploadProgress" style="display: none;">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <div id="uploadStatus"></div>
+                
+                <div class="content-grid" id="mediaList">
+                    <div class="loading show">
+                        <div class="spinner"></div>
+                        <p>Medya dosyaları yükleniyor...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="admin-section" id="settings">
+                <h2>Site Ayarları</h2>
+                
+                <div class="form-group">
+                    <label for="siteTitle">Site Başlığı</label>
+                    <input type="text" id="siteTitle" value="Kement Studios - Dijital Ajans">
+                </div>
+                
+                <div class="form-group">
+                    <label for="siteDescription">Site Açıklaması</label>
+                    <textarea id="siteDescription">Markanızı dijital dünyada öne çıkaran web tasarımı, kullanıcı odaklı arayüzler, mobil uygulamalar ve kurumsal kimlik çözümleriyle hayallerinizi gerçeğe dönüştürüyoruz.</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactEmail">İletişim E-postası</label>
+                    <input type="email" id="contactEmail" value="bilgi@kementstudios.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactPhone">Telefon</label>
+                    <input type="tel" id="contactPhone" value="0 553 772 5243">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactAddress">Adres</label>
+                    <input type="text" id="contactAddress" value="İstanbul, Avcılar">
+                </div>
+                
+                <button class="btn" onclick="saveSettings()">Ayarları Kaydet</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Page Modal -->
+    <div id="pageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pageModal')">&times;</span>
+            <h2 id="pageModalTitle">Yeni Sayfa Ekle</h2>
+            
+            <div class="form-group">
+                <label for="pageTitle">Sayfa Başlığı</label>
+                <input type="text" id="pageTitle" placeholder="Sayfa başlığı">
+            </div>
+            
+            <div class="form-group">
+                <label for="pageSlug">Sayfa URL</label>
+                <input type="text" id="pageSlug" placeholder="sayfa-url">
+            </div>
+            
+            <div class="form-group">
+                <label for="pageContent">Sayfa İçeriği</label>
+                <textarea id="pageContent" rows="10" placeholder="Sayfa içeriği (HTML destekli)"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="pageStatus">Durum</label>
+                <select id="pageStatus">
+                    <option value="published">Yayınlanmış</option>
+                    <option value="draft">Taslak</option>
+                </select>
+            </div>
+            
+            <button class="btn" onclick="savePage()">Kaydet</button>
+            <button class="btn btn-secondary" onclick="closeModal('pageModal')">İptal</button>
+        </div>
+    </div>
+
+    <!-- Content Edit Modal -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contentModal')">&times;</span>
+            <h2 id="contentModalTitle">İçerik Düzenle</h2>
+            
+            <div id="contentForm">
+                <!-- Dynamic content form will be loaded here -->
+            </div>
+            
+            <button class="btn" onclick="saveContent()">Kaydet</button>
+            <button class="btn btn-secondary" onclick="closeModal('contentModal')">İptal</button>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let githubToken = '';
+        let currentUser = '';
+        let repoOwner = 'orhankement';
+        let repoName = 'kementstudios';
+        let branch = 'main';
+        let currentEditingContent = null;
+
+        // Authentication
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const token = document.getElementById('githubToken').value;
+            
+            if (!username || !password || !token) {
+                showMessage('loginMessage', 'Lütfen tüm alanları doldurun!', 'error');
+                return;
+            }
+            
+            // Simple authentication (in production, use proper authentication)
+            if (username === 'admin' && password === 'admin123') {
+                githubToken = token;
+                currentUser = username;
+                
+                // Store token securely (in production, use proper token management)
+                sessionStorage.setItem('githubToken', token);
+                sessionStorage.setItem('currentUser', username);
+                
+                showMessage('loginMessage', 'Giriş başarılı! Yönlendiriliyorsunuz...', 'success');
+                
+                setTimeout(() => {
+                    document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('adminContainer').style.display = 'block';
+                    initializeAdmin();
+                }, 1500);
+            } else {
+                showMessage('loginMessage', 'Kullanıcı adı veya şifre hatalı!', 'error');
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('githubToken');
+            sessionStorage.removeItem('currentUser');
+            location.reload();
+        }
+
+        function checkAuth() {
+            const token = sessionStorage.getItem('githubToken');
+            const user = sessionStorage.getItem('currentUser');
+            
+            if (token && user) {
+                githubToken = token;
+                currentUser = user;
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('adminContainer').style.display = 'block';
+                initializeAdmin();
+            }
+        }
+
+        // Initialize admin panel
+        function initializeAdmin() {
+            loadDashboardData();
+            loadPages();
+            loadMediaFiles();
+        }
+
+        // Navigation
+        function showSection(sectionId) {
+            // Remove active class from all sections and nav buttons
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected section and nav button
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Utility functions
+        function showMessage(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+            
+            setTimeout(() => {
+                element.innerHTML = '';
+            }, 5000);
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // GitHub API functions
+        async function makeGitHubRequest(endpoint, method = 'GET', data = null) {
+            const url = `https://api.github.com/repos/${repoOwner}/${repoName}${endpoint}`;
+            
+            const options = {
+                method: method,
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                }
+            };
+            
+            if (data) {
+                options.body = JSON.stringify(data);
+            }
+            
+            try {
+                const response = await fetch(url, options);
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API Error: ${response.status} ${response.statusText}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('GitHub API Error:', error);
+                throw error;
+            }
+        }
+
+        async function getFileContent(path) {
+            try {
+                const response = await makeGitHubRequest(`/contents/${path}`);
+                return {
+                    content: atob(response.content),
+                    sha: response.sha
+                };
+            } catch (error) {
+                if (error.message.includes('404')) {
+                    return null; // File doesn't exist
+                }
+                throw error;
+            }
+        }
+
+        async function saveFileContent(path, content, message, sha = null) {
+            const data = {
+                message: message,
+                content: btoa(unescape(encodeURIComponent(content))),
+                branch: branch
+            };
+            
+            if (sha) {
+                data.sha = sha;
+            }
+            
+            return await makeGitHubRequest(`/contents/${path}`, 'PUT', data);
+        }
+
+        async function deleteFile(path, message, sha) {
+            const data = {
+                message: message,
+                sha: sha,
+                branch: branch
+            };
+            
+            return await makeGitHubRequest(`/contents/${path}`, 'DELETE', data);
+        }
+
+        // Dashboard functions
+        async function loadDashboardData() {
+            try {
+                // Update last update time
+                const lastCommit = await makeGitHubRequest('/commits?per_page=1');
+                if (lastCommit.length > 0) {
+                    const date = new Date(lastCommit[0].commit.author.date);
+                    document.getElementById('lastUpdate').textContent = 
+                        `${date.toLocaleDateString('tr-TR')} ${date.toLocaleTimeString('tr-TR')}`;
+                }
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+            }
+        }
+
+        // Pages functions
+        async function loadPages() {
+            const pagesList = document.getElementById('pagesList');
+            const loading = pagesList.querySelector('.loading');
+            
+            try {
+                // Get all HTML files from the repository
+                const contents = await makeGitHubRequest('/contents');
+                const pages = contents.filter(item => 
+                    item.type === 'file' && 
+                    item.name.endsWith('.html') && 
+                    item.name !== 'index.html'
+                );
+                
+                loading.style.display = 'none';
+                
+                if (pages.length === 0) {
+                    pagesList.innerHTML = '<div class="content-item"><p>Henüz sayfa bulunmamaktadır.</p></div>';
+                    return;
+                }
+                
+                pagesList.innerHTML = '';
+                
+                pages.forEach(page => {
+                    const pageItem = document.createElement('div');
+                    pageItem.className = 'content-item';
+                    pageItem.innerHTML = `
+                        <h3>${page.name}</h3>
+                        <p>Boyut: ${(page.size / 1024).toFixed(2)} KB</p>
+                        <button class="btn" onclick="editPage('${page.name}')">Düzenle</button>
+                        <button class="btn btn-danger" onclick="deletePage('${page.name}')">Sil</button>
+                    `;
+                    pagesList.appendChild(pageItem);
+                });
+                
+                // Update stats
+                document.getElementById('totalPages').textContent = pages.length + 1; // +1 for index.html
+                
+            } catch (error) {
+                console.error('Error loading pages:', error);
+                loading.innerHTML = '<p>Sayfalar yüklenirken hata oluştu.</p>';
+            }
+        }
+
+        async function savePage() {
+            const title = document.getElementById('pageTitle').value;
+            const slug = document.getElementById('pageSlug').value;
+            const content = document.getElementById('pageContent').value;
+            const status = document.getElementById('pageStatus').value;
+            
+            if (!title || !slug || !content) {
+                alert('Lütfen tüm alanları doldurun!');
+                return;
+            }
+            
+            try {
+                const fileName = `${slug}.html`;
+                const htmlContent = generatePageHTML(title, content);
+                
+                const existingFile = await getFileContent(
