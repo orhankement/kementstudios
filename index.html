@@ -23,9 +23,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px; /* Genişlik artırıldı */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px; /* Padding artırıldı */
         }
 
         /* Header Styles */
@@ -43,9 +43,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px; /* Genişlik artırıldı */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px; /* Padding artırıldı */
         }
 
         .logo {
@@ -97,6 +97,9 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            max-width: 800px; /* Maksimum genişlik eklendi */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
@@ -129,8 +132,8 @@
 
         .section-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Minimum genişlik artırıldı */
+            gap: 30px;
             margin-bottom: 40px;
         }
 
@@ -197,14 +200,16 @@
         /* Contact Section */
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Minimum genişlik artırıldı */
+            gap: 40px; /* Gap artırıldı */
             text-align: center;
+            max-width: 800px; /* Maksimum genişlik eklendi */
+            margin: 0 auto;
         }
 
         .contact-item {
             background: white;
-            padding: 30px;
+            padding: 40px 30px; /* Padding artırıldı */
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
@@ -212,6 +217,7 @@
         .contact-item h3 {
             color: #212121;
             margin-bottom: 10px;
+            font-size: 1.3rem; /* Font boyutu artırıldı */
         }
 
         .contact-item p {
@@ -302,8 +308,35 @@
             background-color: #b91f1f;
         }
 
+        /* Geniş ekranlar için özel düzenlemeler */
+        @media (min-width: 1200px) {
+            .section-content {
+                grid-template-columns: repeat(4, 1fr); /* 4 sütun düzenlemesi */
+            }
+            
+            /* Hakkımızda bölümü için özel düzenleme */
+            .about-content {
+                grid-template-columns: repeat(2, 1fr); /* 2 sütun kalacak */
+                gap: 60px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            
+            .about-content .card {
+                padding: 40px;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px; /* Mobilde padding azaltıldı */
+            }
+            
+            .header-content {
+                padding: 0 20px;
+            }
+            
             .mobile-menu {
                 display: block;
             }
@@ -338,6 +371,11 @@
 
             .section-content {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .cookie-buttons {
@@ -446,11 +484,11 @@
         </div>
     </section>
     
-  <!-- About Section -->
-   <section class="section">
+    <!-- About Section -->
+    <section class="section">
         <div class="container">
             <h2 class="section-title">Hakkımızda</h2>
-            <div class="section-content">
+            <div class="about-content section-content">
                 <div class="card">
                     <h3>Misyonumuz</h3>
                     <p>Kement Studios olarak, her markanın kendine özgü hikayesini dijital dünyada en etkili şekilde anlatmasını sağlamak için yenilikçi, kullanıcı dostu ve estetik tasarım çözümleri sunuyoruz. Müşterilerimizin hedeflerine ulaşması ve sürdürülebilir başarı yakalaması için birlikte çalışıyoruz.</p>
@@ -573,7 +611,7 @@
 
     Web tasarım ajansı arayanlar, profesyonel logo tasarımı hizmeti almak isteyenler, markasını dijitalde büyütmek isteyen işletme sahipleri, kurumsal kimliğini dijital ortama taşımak isteyen firmalar ve sosyal medya yönetimiyle hedef kitlesine ulaşmak isteyen girişimciler için Kement Studios doğru adrestir.
 
-    Özgün tasarım anlayışı, müşteri memnuniyeti odaklı yaklaşımı ve yaratıcı çözümleriyle Kement Studios, dijitalde başarıya ulaşmak isteyen tüm markalar için stratejik bir iş ortağıdır. Web sitenizi Google’da üst sıralara taşımak, markanızın dijital kimliğini güçlendirmek ve potansiyel müşterilere ulaşmak için bizimle çalışın.
+    Özgün tasarım anlayışı, müşteri memnuniyeti odaklı yaklaşımı ve yaratıcı çözümleriyle Kement Studios, dijitalde başarıya ulaşmak isteyen tüm markalar için stratejik bir iş ortağıdır. Web sitenizi Google'da üst sıralara taşımak, markanızın dijital kimliğini güçlendirmek ve potansiyel müşterilere ulaşmak için bizimle çalışın.
 
     Kement Studios ile hayalinizdeki markayı dijitalde gerçeğe dönüştürün. Dijital ajans hizmeti, web tasarımı, sosyal medya yönetimi, logo tasarımı, SEO, içerik üretimi, marka konumlandırma ve daha fazlası için bizimle iletişime geçin.
 </div>
