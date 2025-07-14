@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim - Kement Studios</title>
+    <meta name="description" content="Kement Studios ile iletişime geçin. Dijital ajans hizmetleri için bize yazın veya arayın.">
+    <meta name="keywords" content="iletişim, dijital ajans, web tasarımı, logo tasarımı, sosyal medya yönetimi, Kement Studios">
+
     <link rel="icon" href="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" type="image/png">
     <style>
         * {
@@ -75,8 +78,8 @@
             cursor: pointer;
         }
 
-        /* Page Header */
-        .page-header {
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #212121 0%, #393E46 100%);
             color: white;
             padding: 120px 0 80px;
@@ -84,31 +87,98 @@
             margin-top: 80px;
         }
 
-        .page-header h1 {
+        .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             font-weight: 700;
         }
 
-        .page-header p {
+        .hero p {
             font-size: 1.2rem;
+            margin-bottom: 30px;
             opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
         }
 
-        /* Contact Section */
-        .contact-section {
+        /* Main Content */
+        .main-content {
             padding: 80px 0;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .contact-section {
+            display: flex;
+            flex-direction: column;
             gap: 60px;
-            align-items: start;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #212121;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, #DC2525, #b91f1f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .contact-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #212121;
+        }
+
+        .contact-details p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-details a {
+            color: #DC2525;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: #b91f1f;
+        }
+
+        /* Contact Form */
         .contact-form {
             background: white;
             padding: 40px;
@@ -117,9 +187,9 @@
         }
 
         .contact-form h2 {
-            color: #212121;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 30px;
+            color: #212121;
         }
 
         .form-group {
@@ -129,8 +199,8 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
+            font-weight: 600;
             color: #212121;
-            font-weight: 500;
         }
 
         .form-group input,
@@ -140,9 +210,9 @@
             padding: 15px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
-            font-size: 16px;
-            font-family: inherit;
+            font-size: 1rem;
             transition: border-color 0.3s;
+            background: #f8f9fa;
         }
 
         .form-group input:focus,
@@ -150,6 +220,7 @@
         .form-group select:focus {
             outline: none;
             border-color: #DC2525;
+            background: white;
         }
 
         .form-group textarea {
@@ -157,136 +228,91 @@
             min-height: 120px;
         }
 
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
         .submit-btn {
-            background-color: #DC2525;
+            background: linear-gradient(135deg, #DC2525, #b91f1f);
             color: white;
             padding: 15px 40px;
             border: none;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .submit-btn:hover {
-            background-color: #b91f1f;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 37, 37, 0.3);
         }
 
-        /* Contact Info */
-        .contact-info {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .submit-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
         }
 
-        .contact-info h2 {
-            color: #212121;
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .info-item:hover {
-            transform: translateY(-2px);
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background-color: #DC2525;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .info-content h3 {
-            color: #212121;
-            margin-bottom: 5px;
-        }
-
-        .info-content p {
-            color: #666;
-            margin: 0;
-        }
-
-        /* Map Section */
-        .map-section {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 30px;
-        }
-
-        .map-section h3 {
-            color: #212121;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .map-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* Social Links */
+        /* Social Media Section */
         .social-section {
+            margin-top: 60px;
             text-align: center;
-            margin-top: 40px;
         }
 
         .social-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             color: #212121;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background-color: #212121;
-            border-radius: 50%;
+        .social-link {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
+            gap: 15px;
+            padding: 15px 30px;
+            background: white;
+            border-radius: 50px;
             text-decoration: none;
+            color: #212121;
+            font-weight: 500;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .social-links a:hover {
-            background-color: #DC2525;
+        .social-link:hover {
             transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+        }
+
+        .social-link.linkedin:hover {
+            background: #0077b5;
+            color: white;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
         }
 
         /* Footer */
@@ -313,16 +339,6 @@
             color: #DC2525;
         }
 
-        /* Success Message */
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: none;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu {
@@ -345,44 +361,56 @@
                 display: flex;
             }
 
-            .page-header h1 {
-                font-size: 2.5rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-section {
                 gap: 40px;
             }
 
-            .contact-form,
-            .contact-info {
-                padding: 30px;
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
-            .info-item {
-                flex-direction: column;
-                text-align: center;
+            .contact-info,
+            .contact-form {
+                padding: 25px;
             }
 
-            .info-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
+            .contact-info h2,
+            .contact-form h2 {
+                font-size: 1.8rem;
             }
 
             .social-links {
-                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
         }
 
-        @media (max-width: 480px) {
-            .contact-form,
-            .contact-info {
-                padding: 20px;
-            }
+        /* Success Message */
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
 
-            .page-header h1 {
-                font-size: 2rem;
-            }
+        .success-message.show {
+            display: block;
         }
     </style>
 </head>
@@ -394,153 +422,153 @@
             <nav>
                 <button class="mobile-menu" onclick="toggleMenu()">☰</button>
                 <ul id="nav-menu">
-                    <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                    <li><a href="hizmetler.html">Hizmetler</a></li>
-                    <li><a href="projeler.html">Projeler</a></li>
-                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="/">Anasayfa</a></li>
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/hizmetler">Hizmetler</a></li>
+                    <li><a href="/projeler">Projeler</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
             <h1>İletişim</h1>
-            <p>Projeleriniz hakkında konuşmak ve size nasıl yardımcı olabileceğimizi öğrenmek için bizimle iletişime geçin.</p>
+            <p>Dijital projeleriniz için bizimle iletişime geçin. Size en uygun çözümleri sunmak için buradayız.</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- Main Content -->
+    <main class="main-content">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-section">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Bizimle İletişime Geçin</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adres</h3>
+                            <p>İstanbul, Avcılar<br>Türkiye</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-posta</h3>
+                            <p><a href="mailto:bilgi@kementstudios.com">bilgi@kementstudios.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Çalışma Saatleri</h3>
+                            <p>Pazartesi - Cuma: 09:00 - 18:00<br>Hafta Sonu: Randevu ile</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Contact Form -->
                 <div class="contact-form">
-                    <h2>Mesaj Gönderin</h2>
+                    <h2>Proje Talebi</h2>
                     <div class="success-message" id="successMessage">
                         Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
                     </div>
+                    
                     <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Ad Soyad *</label>
-                            <input type="text" id="name" name="name" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ad Soyad *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-posta *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Şirket</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        
+
                         <div class="form-group">
                             <label for="service">Hizmet Türü</label>
                             <select id="service" name="service">
-                                <option value="">Seçiniz...</option>
-                                <option value="web-tasarim">Web Tasarım & Kurulum</option>
-                                <option value="ui-ux">Arayüz Tasarımı (UI/UX)</option>
-                                <option value="mobil-app">Mobil Uygulama Tasarımı</option>
-                                <option value="e-ticaret">E-Ticaret Çözümleri</option>
-                                <option value="kurumsal-kimlik">Kurumsal Kimlik Tasarımı</option>
+                                <option value="">Seçiniz</option>
+                                <option value="web-tasarim">Web Tasarımı</option>
+                                <option value="ui-ux">UI/UX Tasarımı</option>
+                                <option value="mobil-uygulama">Mobil Uygulama</option>
+                                <option value="e-ticaret">E-Ticaret</option>
+                                <option value="kurumsal-kimlik">Kurumsal Kimlik</option>
+                                <option value="sosyal-medya">Sosyal Medya Yönetimi</option>
                                 <option value="diger">Diğer</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="message">Mesajınız *</label>
-                            <textarea id="message" name="message" placeholder="Proje detaylarınızı ve beklentilerinizi paylaşın..." required></textarea>
+                            <label for="subject">Konu *</label>
+                            <input type="text" id="subject" name="subject" required>
                         </div>
-                        
-                        <button type="submit" class="submit-btn">Mesaj Gönder</button>
+
+                        <div class="form-group">
+                            <label for="message">Mesaj *</label>
+                            <textarea id="message" name="message" placeholder="Projeniz hakkında detaylı bilgi veriniz..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                            Mesaj Gönder
+                        </button>
                     </form>
                 </div>
-
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h2>İletişim Bilgileri</h2>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div class="info-content">
-                            <h3>Adres</h3>
-                            <p>İstanbul, Avcılar</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <div class="info-content">
-                            <h3>Telefon</h3>
-                            <p>0 553 772 5243</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">✉️</div>
-                        <div class="info-content">
-                            <h3>E-posta</h3>
-                            <p>bilgi@kementstudios.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">🕒</div>
-                        <div class="info-content">
-                            <h3>Çalışma Saatleri</h3>
-                            <p>Pazartesi - Cuma: 09:00 - 18:00</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <!-- Map Section -->
-            <div class="map-section">
-                <h3>Konum</h3>
-                <div class="map-placeholder">
-                    🗺️ Harita entegrasyonu için Google Maps API kullanılabilir
-                </div>
-            </div>
-
-            <!-- Social Links -->
+            <!-- Social Media Section -->
             <div class="social-section">
-                <h3>Sosyal Medya</h3>
+                <h3>Sosyal Medyada Bizi Takip Edin</h3>
                 <div class="social-links">
-                    <a href="https://instagram.com/kementstudios" target="_blank" title="Instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <a href="https://instagram.com/kementstudios" target="_blank" class="social-link instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
+                        @kementstudios
                     </a>
-                    <a href="https://linkedin.com/company/kementstudios" target="_blank" title="LinkedIn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <a href="https://linkedin.com/company/kementstudios" target="_blank" class="social-link linkedin">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
+                        Kement Studios
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="index.html">Anasayfa</a>
-                <a href="hakkimizda.html">Hakkımızda</a>
-                <a href="hizmetler.html">Hizmetler</a>
-                <a href="projeler.html">Projeler</a>
-                <a href="gizlilik.html">Gizlilik Politikası</a>
+                <a href="/gizlilik">Gizlilik Politikası</a>
+                <a href="/">Anasayfa</a>
+                <a href="/hizmetler">Hizmetler</a>
             </div>
-            <p>&copy; 2024 Kement Studios. Tüm hakları saklıdır.</p>
+            <p>&copy; 2025 Kement Studios. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
@@ -555,31 +583,23 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !message) {
-                alert('Lütfen zorunlu alanları doldurun.');
-                return;
-            }
-            
             // Show success message
-            document.getElementById('successMessage').style.display = 'block';
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
             
             // Reset form
             this.reset();
             
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({
-                behavior: 'smooth'
-            });
-            
             // Hide success message after 5 seconds
             setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
+                successMessage.classList.remove('show');
             }, 5000);
+            
+            // Scroll to top of form
+            document.querySelector('.contact-form').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
 
         // Smooth scrolling for anchor links
@@ -592,6 +612,26 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                }
+            });
+        });
+
+        // Form validation
+        const form = document.getElementById('contactForm');
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#dc3545';
+                } else {
+                    this.style.borderColor = '#28a745';
+                }
+            });
+
+            input.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    this.style.borderColor = '#28a745';
                 }
             });
         });
