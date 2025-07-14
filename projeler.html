@@ -152,9 +152,7 @@
         }
 
         .project-card.hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
+            display: none;
         }
 
         .project-image {
@@ -165,24 +163,6 @@
             background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(220, 37, 37, 0.9), rgba(57, 62, 70, 0.9));
-            opacity: 0;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
         }
 
         .project-info {
@@ -461,11 +441,7 @@
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card" data-category="social">
-                    <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/bag1.png')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal1')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/bag1.png')"></div>
                     <div class="project-info">
                         <div class="project-category">Sosyal Medya</div>
                         <h3 class="project-title">Çanta Mağazası Post Tasarımı</h3>
@@ -483,11 +459,7 @@
 
                 <!-- Project 2 -->
                 <div class="project-card" data-category="social">
-                    <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/bag2.png')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal2')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/bag2.png')"></div>
                     <div class="project-info">
                         <div class="project-category">Sosyal Medya</div>
                         <h3 class="project-title">Çanta Koleksiyonu Post Tasarımı</h3>
@@ -505,11 +477,7 @@
 
                 <!-- Project 3 -->
                 <div class="project-card" data-category="social">
-                    <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/pikselabi13.jpg')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal3')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/pikselabi13.jpg')"></div>
                     <div class="project-info">
                         <div class="project-category">Sosyal Medya</div>
                         <h3 class="project-title">Piksel Abi Post Tasarımı</h3>
@@ -527,11 +495,7 @@
 
                 <!-- Project 4 -->
                 <div class="project-card" data-category="web">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal4')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80')"></div>
                     <div class="project-info">
                         <div class="project-category">Web Tasarım</div>
                         <h3 class="project-title">Kurumsal Web Sitesi</h3>
@@ -551,11 +515,7 @@
 
                 <!-- Project 5 -->
                 <div class="project-card" data-category="ui">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal5')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80')"></div>
                     <div class="project-info">
                         <div class="project-category">UI/UX</div>
                         <h3 class="project-title">E-Ticaret Uygulaması</h3>
@@ -574,11 +534,7 @@
 
                 <!-- Project 6 -->
                 <div class="project-card" data-category="mobile">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal6')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
                     <div class="project-info">
                         <div class="project-category">Mobil</div>
                         <h3 class="project-title">Fitness Mobil Uygulaması</h3>
@@ -597,11 +553,7 @@
 
                 <!-- Project 7 -->
                 <div class="project-card" data-category="identity">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal7')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1626785774625-0b1c2c4eab67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')"></div>
                     <div class="project-info">
                         <div class="project-category">Kurumsal Kimlik</div>
                         <h3 class="project-title">Restoran Kurumsal Kimlik</h3>
@@ -620,11 +572,7 @@
 
                 <!-- Project 8 -->
                 <div class="project-card" data-category="web">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
-                        <div class="project-overlay">
-                            <button class="project-btn" onclick="openModal('modal8')">Detayları Gör</button>
-                        </div>
-                    </div>
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
                     <div class="project-info">
                         <div class="project-category">Web Tasarım</div>
                         <h3 class="project-title">Portföy Web Sitesi</h3>
@@ -676,6 +624,40 @@
                 <p><strong>Kullanılan Teknolojiler:</strong> Photoshop, Illustrator</p>
                 <p><strong>Proje Süresi:</strong> 2 gün</p>
                 <p><strong>Özellikler:</strong> Ürün fotoğrafı entegrasyonu, marka renkleri, call-to-action butonları</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Piksel Abi Post Tasarımı</h2>
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image" style="background-image: url('https://raw.githubusercontent.com/orhankement/kementstudios/6e171ad2173ddbb91c0186e9a2b0d3aa54a5403e/img/pikselabi13.jpg')"></div>
+                <p><strong>Proje Detayları:</strong></p>
+                <p>Teknoloji temalı içerik üreticisi için geliştirilmiş sosyal medya post tasarımı. Piksel sanatı ve teknoloji konseptini birleştiren yaratıcı tasarım.</p>
+                <p><strong>Kullanılan Teknolojiler:</strong> Photoshop, After Effects</p>
+                <p><strong>Proje Süresi:</strong> 4 gün</p>
+                <p><strong>Özellikler:</strong> Animasyonlu elementler, piksel art, teknoloji teması</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Kurumsal Web Sitesi</h2>
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80')"></div>
+                <p><strong>Proje Detayları:</strong></p>
+                <p>Modern bir şirket için responsive ve SEO uyumlu kurumsal web sitesi tasarımı. Kullanıcı dostu arayüz ve hızlı performans odaklı geliştirme.</p>
+                <p><strong>Kullanılan Teknolojiler:</strong> HTML5, CSS3, JavaScript</p>
+                <p><strong>Proje Süresi:</strong> 3 hafta</p>
+                <p><strong>Özellikler:</strong> Responsive design, SEO optimizasyonu, hızlı yükleme</p>
             </div>
         </div>
     </div>
