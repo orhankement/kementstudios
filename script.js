@@ -3,7 +3,7 @@ function toggleMenu() {
     const menu = document.getElementById('nav-menu');
     menu.classList.toggle('show');
 }
- 
+
 // Cookie notice functionality
 function showCookieNotice() {
     const notice = document.getElementById('cookieNotice');
@@ -21,4 +21,27 @@ function acceptCookies() {
 
 function declineCookies() {
     localStorage.setItem('cookieAccepted', 'false');
-    hideCookieNotice
+    hideCookieNotice();
+}
+
+function hideCookieNotice() {
+    const notice = document.getElementById('cookieNotice');
+    notice.classList.remove('show');
+}
+
+// Show cookie notice on page load
+window.addEventListener('load', showCookieNotice);
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
