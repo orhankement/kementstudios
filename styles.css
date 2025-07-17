@@ -18,18 +18,24 @@
         }
 
 
-.text-content {
+.kvkk-card {
+  text-align: left;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.kvkk-card h3 {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #212121;
+}
+
+.kvkk-card p {
+  margin-bottom: 15px;
+  color: #444;
   line-height: 1.7;
 }
-.text-content h3 {
-  margin-top: 30px;
-  font-size: 1.5rem;
-}
-.text-content p {
-  margin-bottom: 20px;
-}
+
 
 
         /* Header Styles */
