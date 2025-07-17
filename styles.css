@@ -227,35 +227,6 @@ nav a:hover {
     margin-top: 30px;
 }
 
-/* Contact Section */
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 300px'den 350px'e çıkarıldı */
-    gap: 50px; /* 40px'den 50px'e çıkarıldı */
-    text-align: center;
-    max-width: 900px; /* 800px'den 900px'e çıkarıldı */
-    margin: 0 auto;
-}
-
-.contact-item {
-    background: white;
-    padding: 50px 40px; /* Padding artırıldı */
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    max-width: 400px; /* Maksimum genişlik eklendi */
-    margin: 0 auto; /* Kartları ortalar */
-}
-.contact-item h3 {
-    color: #212121;
-    margin-bottom: 10px;
-    font-size: 1.3rem; /* Font boyutu artırıldı */
-}
-
-.contact-item p {
-    color: #666;
-    font-size: 1.1rem;
-}
-
 /* Footer */
 footer {
     background-color: #212121;
@@ -294,6 +265,33 @@ footer {
 
 .footer-links a:hover {
     color: #DC2525;
+}
+
+/* Footer İletişim Stilleri */
+.footer-contact {
+    margin-bottom: 30px;
+}
+
+.footer-contact h3 {
+    color: #DC2525;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact-info p {
+    color: #ccc;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.footer-contact-info strong {
+    color: white;
 }
 
 /* Cookie Notice */
@@ -420,5 +418,9 @@ footer {
 
     .card-image {
         height: 150px;
+    }
+
+    .footer-contact-info {
+        text-align: center;
     }
 }
