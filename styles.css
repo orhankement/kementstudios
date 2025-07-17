@@ -121,18 +121,22 @@ nav a:hover {
 
 .section-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Minimum genişlik artırıldı */
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 320px'den 350px'e çıkarıldı */
+    gap: 40px; /* 30px'den 40px'e çıkarıldı */
     margin-bottom: 40px;
+    justify-content: center; /* Kartları ortalar */
 }
 
 .card {
     background: white;
-    padding: 30px;
+    padding: 40px; /* 30px'den 40px'e çıkarıldı */
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s;
+    width: 100%;
+    max-width: 400px; /* Maksimum genişlik eklendi */
+    margin: 0 auto; /* Kartları ortalar */
 }
 
 .card:hover {
@@ -226,20 +230,21 @@ nav a:hover {
 /* Contact Section */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Minimum genişlik artırıldı */
-    gap: 40px; /* Gap artırıldı */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* 300px'den 350px'e çıkarıldı */
+    gap: 50px; /* 40px'den 50px'e çıkarıldı */
     text-align: center;
-    max-width: 800px; /* Maksimum genişlik eklendi */
+    max-width: 900px; /* 800px'den 900px'e çıkarıldı */
     margin: 0 auto;
 }
 
 .contact-item {
     background: white;
-    padding: 40px 30px; /* Padding artırıldı */
+    padding: 50px 40px; /* Padding artırıldı */
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 400px; /* Maksimum genişlik eklendi */
+    margin: 0 auto; /* Kartları ortalar */
 }
-
 .contact-item h3 {
     color: #212121;
     margin-bottom: 10px;
@@ -337,19 +342,23 @@ footer {
 /* Geniş ekranlar için özel düzenlemeler */
 @media (min-width: 1200px) {
     .section-content {
-        grid-template-columns: repeat(4, 1fr); /* 4 sütun düzenlemesi */
+        grid-template-columns: repeat(3, 1fr); /* 4'ten 3'e düşürüldü, daha geniş kartlar */
+        gap: 50px; /* Gap artırıldı */
+        max-width: 1200px; /* Maksimum genişlik */
+        margin: 0 auto; /* Container'ı ortalar */
+    }
+    
+    .card {
+        max-width: none; /* Geniş ekranlarda max-width kaldırıldı */
+        padding: 50px; /* Padding artırıldı */
     }
     
     /* Hakkımızda bölümü için özel düzenleme */
     .about-content {
-        grid-template-columns: repeat(2, 1fr); /* 2 sütun kalacak */
+        grid-template-columns: repeat(2, 1fr);
         gap: 60px;
         max-width: 1000px;
         margin: 0 auto;
-    }
-    
-    .about-content .card {
-        padding: 40px;
     }
 }
 
