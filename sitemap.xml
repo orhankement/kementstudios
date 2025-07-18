@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Ana Sayfa -->
+  <url>
+    <loc>https://kementstudios.com/</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Hakkımızda -->
+  <url>
+    <loc>https://kementstudios.com/hakkimizda</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hizmetler -->
+  <url>
+    <loc>https://kementstudios.com/hizmetler</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Projeler -->
+  <url>
+    <loc>https://kementstudios.com/projeler</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- İletişim -->
+  <url>
+    <loc>https://kementstudios.com/iletisim</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Gizlilik Politikası -->
+  <url>
+    <loc>https://kementstudios.com/gizlilik</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Çerez Politikası -->
+  <url>
+    <loc>https://kementstudios.com/cerez</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Kullanım Şartları (Varsa) -->
+  <url>
+    <loc>https://kementstudios.com/kvkk</loc>
+    <lastmod>2025-07-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
