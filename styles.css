@@ -103,17 +103,6 @@
             margin-top: 80px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px 0 0 50px;
-            z-index: 1;
-        }
 
         .hero-container {
             max-width: 1200px;
