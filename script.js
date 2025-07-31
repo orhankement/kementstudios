@@ -1,47 +1,15 @@
-// Mobile menu toggle
-function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('show');
-}
 
-// Cookie notice functionality
-function showCookieNotice() {
-    const notice = document.getElementById('cookieNotice');
-    const cookieAccepted = localStorage.getItem('cookieAccepted');
-    
-    if (!cookieAccepted) {
-        notice.classList.add('show');
-    }
-}
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-function acceptCookies() {
-    localStorage.setItem('cookieAccepted', 'true');
-    hideCookieNotice();
-}
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-function declineCookies() {
-    localStorage.setItem('cookieAccepted', 'false');
-    hideCookieNotice();
-}
-
-function hideCookieNotice() {
-    const notice = document.getElementById('cookieNotice');
-    notice.classList.remove('show');
-}
-
-// Show cookie notice on page load
-window.addEventListener('load', showCookieNotice);
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-        }
-    });
-});
+        });
