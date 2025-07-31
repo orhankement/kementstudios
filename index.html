@@ -1,232 +1,169 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kement Studios - Dijital Ajans</title>
-    <meta name="description" content="Kement Studios, dijital ajans hizmetleri sunar: profesyonel web tasarımı, hızlı web sitesi kurulumu, mobil uygulama tasarımı (UI/UX), SEO çalışmaları ve kullanıcı dostu e-ticaret sitesi çözümleriyle markanızı dijitale taşıyın.">
-    <meta name="keywords" content="dijital ajans, web tasarımı, website kurulum, arayüz tasarımı, SEO, e-ticaret sitesi, mobil uygulama tasarımı, UI UX">
+    <title>Kement Studios - Mobil Oyun Geliştirme</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link rel="icon" href="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <img src="https://raw.githubusercontent.com/orhankement/kementstudios/main/img/logo.png" alt="Kement Studios Logo" class="logo">
-            <nav>
-                <button class="mobile-menu" onclick="toggleMenu()">☰</button>
-                <ul id="nav-menu">
-                    <li><a href="#home">Anasayfa</a></li>
-                    <li><a href="/hakkimizda">Hakkımızda</a></li>
-                    <li><a href="/hizmetler">Hizmetler</a></li>
-                    <li><a href="/projeler">Projeler</a></li>
-                    <li><a href="/iletisim">İletişim</a></li>
-                </ul>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-50 top-0 border-b border-gray-700/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white">
+                Kement<span class="text-sky-400">Studios</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#hakkimizda" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Hakkımızda</a>
+                <a href="#oyunlar" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">Oyunlar</a>
+                <a href="#iletisim" class="text-gray-300 hover:text-sky-400 transition-colors duration-300">İletişim</a>
             </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#hakkimizda" class="block text-center py-2 px-4 text-sm text-gray-200 hover:bg-gray-700">Hakkımızda</a>
+            <a href="#oyunlar" class="block text-center py-2 px-4 text-sm text-gray-200 hover:bg-gray-700">Oyunlar</a>
+            <a href="#iletisim" class="block text-center py-2 px-4 text-sm text-gray-200 hover:bg-gray-700">İletişim</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-     <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>KEMENT STUDIOS</h1>
-                <p>Markanızı dijitale taşıyın, fark yaratmaya hemen başlayın! Kement Studios'da uzman ekibimizle birlikte dijital dünyanın sınırsız olanaklarını keşfedin.</p>
-                <div class="hero-buttons">
-                    <a href="#hizmetler" class="btn-primary">Hizmetlerimizi Keşfet</a>
-                    <a href="#hakkimizda" class="btn-secondary">
-                        <span>Hakkımızda</span>
-                        <span>→</span>
-                    </a>
-                </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center hero-bg">
+            <div class="text-center px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 animate-fade-in-down">
+                    Mobil Dünyada Unutulmaz Maceralar Yaratıyoruz
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Yenilikçi, eğlenceli ve sürükleyici mobil oyunlar geliştirerek dünya çapında milyonlarca oyuncuya eşsiz deneyimler sunuyoruz.
+                </p>
+                <a href="#oyunlar" class="btn-primary text-white font-bold py-3 px-8 rounded-full text-lg inline-block">
+                    Oyunlarımızı Keşfet
+                </a>
             </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <h3>Dijital Çözümler</h3>
-                    <p>Web tasarımından mobil uygulamalara, SEO'dan e-ticarete kadar tüm dijital ihtiyaçlarınız için tek adres.</p>
-                </div>
-                <div class="floating-elements">
-                    <div class="floating-element">🚀</div>
-                    <div class="floating-element">💻</div>
-                    <div class="floating-element">🎨</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-
-    <!-- Services Section -->
-    <section class="section services-section">
-        <div class="stats-container">
-            <h2 class="stats-title">Hizmetler</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>Web Tasarım & Geliştirme</h3>
-                    <p>Kurumsal Web Sitesi Tasarımı
-
-                       Mobil Uyumluluk (Responsive Design)
-
-                       Kullanıcı Deneyimi (UX) ve Arayüz Tasarımı (UI)
-
-                       Hızlı ve Güvenli Site Kurulumu</p>
-                </div>
-                <div class="stat-card">
-                    <h3>E-Ticaret Çözümleri</h3>
-                    <p>E-Ticaret Sitesi Kurulumu
-
-                       Ürün Sayfası ve Sepet Tasarımları
-
-                       Kullanıcı Dostu Alışveriş Deneyimi
-
-                       Ödeme Sistemi Entegrasyonu</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Mobil Uygulama Tasarımı (UX/UI)</h3>
-                    <p>iOS ve Android için Arayüz Tasarımı
-
-                       Prototipleme (Figma, Adobe XD)
-
-                       Kullanıcı Deneyimi Odaklı Tasarımlar</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="/hizmetler" class="cta-button">Hepsini Gör</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Projeler</h2>
-            <div class="section-content">
-              
-                <div class="card">
-                    <div class="card-image" style="background-image: url('https://ik.imagekit.io/kementstudios/sorsana.png')"></div>
-                    <div class="card-content">
-                        <h3>Mobil Uygulama Tasarımı</h3>
-                        <p>Mobil uygulamanın arayüz tasarımları yeniden yapıldı.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-image" style="background-image: url('https://ik.imagekit.io/kementstudios/webtasarim.png')"></div>
-                    <div class="card-content">
-                        <h3>Web Tasarım</h3>
-                        <p>Markanın imajına uygun şekilde websitesi yeniden dizayn edildi.</p>
-                    </div>
-                </div>
-    
-                <div class="card">
-                    <div class="card-image" style="background-image: url('https://ik.imagekit.io/kementstudios/website.png')"></div>
-                    <div class="card-content">
-                        <h3>Kurumsal Website Kurulumu</h3>
-                        <p>Firmaya en iyi tanıtacak şekilde websitesi kuruldu.</p>
+        <!-- About Us Section -->
+        <section id="hakkimizda" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title mb-12">Hikayemiz</h2>
+                <div class="max-w-4xl mx-auto glass-card rounded-xl p-8 md:p-12 text-center">
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        Kement Studios, mobil oyun dünyasına yeni bir soluk getirme tutkusuyla İstanbul'da kuruldu. Bizim için oyun geliştirmek sadece bir iş değil, aynı zamanda bir sanattır. İstanbul'un dinamik ve ilham veren atmosferinde, yaratıcılığı teknolojiyle birleştirerek her yaştan oyuncunun keyif alacağı kaliteli yapımlar ortaya çıkarmayı hedefliyoruz.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8 mt-10">
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-sky-400 mb-3">Misyonumuz</h3>
+                            <p class="text-gray-400">Oyuncuların beklentilerini aşan, yenilikçi ve yüksek kaliteli mobil oyunlar üreterek onlara eğlenceli ve bağ kurabilecekleri dijital dünyalar sunmak.</p>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-violet-400 mb-3">Vizyonumuz</h3>
+                            <p class="text-gray-400">Yaratıcılığımız ve özgün projelerimizle Türkiye'den çıkan küresel bir mobil oyun markası olmak.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-             <div style="text-align: center; margin-top: 30px;">
-                <a href="/projeler" class="cta-button">Hepsini Gör</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Hakkımızda</h2>
-            <div class="about-content section-content">
-                <div class="card">
-                    <h3>Misyonumuz</h3>
-                    <p>Kement Studios olarak, her markanın kendine özgü hikayesini dijital dünyada en etkili şekilde anlatmasını sağlamak için yenilikçi, kullanıcı dostu ve estetik tasarım çözümleri sunuyoruz. Müşterilerimizin hedeflerine ulaşması ve sürdürülebilir başarı yakalaması için birlikte çalışıyoruz.</p>
-                </div>
-                <div class="card">
-                    <h3>Vizyonumuz</h3>
-                    <p>Dijital tasarım ve teknolojide yaratıcı ve güvenilir bir rehber olarak, Türkiye'de ve uluslararası arenada markaların tercih ettiği ilk çözüm ortağı olmak. Yenilikçi yaklaşımlarımızla sektörde fark yaratmak ve müşterilerimizin dijital dünyadaki varlıklarını güçlü kılmak.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="/hakkimizda" class="cta-button">Hepsini Gör</a>
-            </div>
-        </div>
-    </section>
-    
+        </section>
 
- <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <!-- Kurumsal Bölümü -->
-                <div class="footer-section footer-corporate">
-                    <h3>Kurumsal</h3>
-                    <p>Kement Studios olarak, her markanın kendine özgü hikayesini dijital dünyada en etkili şekilde anlatmasını sağlamak için yenilikçi çözümler sunuyoruz.</p>
-                    <div class="footer-links">
-                       <a href="/gizlilik">Gizlilik Politikası</a>
-                       <a href="/kvkk.html">KVKK Aydınlatma Metni</a>
-                       <a href="/cerez.html">Çerez Politikası</a>
+        <!-- Games Section -->
+        <section id="oyunlar" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title mb-16">Oyunlarımız</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Game Card 1 -->
+                    <div class="glass-card rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/38bdf8/ffffff?text=Oyun+1" alt="Oyun 1 Görseli" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Galaktik Savaşçılar</h3>
+                            <p class="text-gray-400 mb-4">Uzayın derinliklerinde destansı bir savaşa katılın. Geminizi geliştirin ve galaksinin hakimi olun!</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-apple mr-2"></i> App Store</a>
+                                <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-google-play mr-2"></i> Google Play</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- İletişim Bölümü -->
-                <div class="footer-section footer-contact">
-                    <h3>İletişim</h3>
-                    <div class="footer-contact-info">
-                        <p><strong>📍 Adres:</strong> İstanbul, Avcılar</p>
-                        <p><strong>✉️ E-posta:</strong> bilgi@kementstudios.com</p>
-                        <p><strong>🕒 Çalışma Saatleri:</strong> Pzt-Cum 09:00-18:00</p>
+                    <!-- Game Card 2 -->
+                    <div class="glass-card rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Oyun+2" alt="Oyun 2 Görseli" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Zihin Labirenti</h3>
+                            <p class="text-gray-400 mb-4">Zeka sınırlarını zorlayan bulmacalarla dolu bu oyunda saatlerin nasıl geçtiğini anlamayacaksınız.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-apple mr-2"></i> App Store</a>
+                                <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-google-play mr-2"></i> Google Play</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Sosyal Medya Bölümü -->
-                <div class="footer-section footer-social">
-                    <h3>Sosyal Medya</h3>
-                    <div class="social-links">
-                        <a href="https://instagram.com/kementstudios" target="_blank" title="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://linkedin.com/company/kementstudios" target="_blank" title="LinkedIn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
+                    <!-- Game Card 3 -->
+                    <div class="glass-card rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/f472b6/ffffff?text=Oyun+3" alt="Oyun 3 Görseli" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Ritim Koşucusu</h3>
+                            <p class="text-gray-400 mb-4">Müziğin ritmine ayak uydurarak engelleri aşın ve en yüksek skoru yapmaya çalışın. Refleksleriniz hazır mı?</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-apple mr-2"></i> App Store</a>
+                                <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-google-play mr-2"></i> Google Play</a>
+                            </div>
+                        </div>
                     </div>
-                    <p style="margin-top: 15px; color: #ccc; font-size: 0.9rem;">Bizi takip edin ve güncel kalın!</p>
                 </div>
             </div>
-            
-            <!-- Footer Alt Kısmı -->
-            <div class="footer-bottom">
-                <p>&copy; 2025 Kement Studios. Tüm hakları saklıdır.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="iletisim" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title mb-12">Bize Ulaşın</h2>
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-lg text-gray-300 mb-10">
+                        Fikirlerinizi, proje tekliflerinizi veya sadece bir "merhaba" demek için bizimle iletişime geçmekten çekinmeyin.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="glass-card p-6 rounded-lg">
+                            <i class="fas fa-map-marker-alt text-3xl text-sky-400 mb-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Adres</h3>
+                            <p class="text-gray-400">Avcılar, İstanbul</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <i class="fas fa-envelope text-3xl text-sky-400 mb-3"></i>
+                            <h3 class="text-xl font-semibold text-white">E-posta</h3>
+                            <a href="mailto:bilgi@kementstudios.com" class="text-gray-400 hover:text-sky-400">bilgi@kementstudios.com</a>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <i class="fas fa-share-alt text-3xl text-sky-400 mb-3"></i>
+                            <h3 class="text-xl font-semibold text-white">Sosyal Medya</h3>
+                            <div class="flex justify-center space-x-6 mt-2">
+                                <a href="https://instagram.com/kementstudios" target="_blank" class="text-gray-400 social-icon text-2xl transition-colors"><i class="fab fa-instagram"></i></a>
+                                <a href="https://linkedin.com/company/kementstudios" target="_blank" class="text-gray-400 social-icon text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-6">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 Kement Studios. Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
-    <!-- Cookie Notice -->
-    <div class="cookie-notice" id="cookieNotice">
-        <div class="container">
-            <p>Bu web sitesi, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır. Siteyi kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.</p>
-            <div class="cookie-buttons">
-                <button class="cookie-btn" onclick="acceptCookies()">Kabul Et</button>
-                <button class="cookie-btn" onclick="declineCookies()">Reddet</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- SEO Meta Açıklama ve Anahtar Kelime Odaklı Gizli İçerik - Kement Studios -->
-    <div style="display: none;">
-        Kement Studios; yaratıcı, yenilikçi ve çözüm odaklı bir dijital ajans olarak web tasarımı, kurumsal kimlik oluşturma, sosyal medya yönetimi ve dijital pazarlama alanlarında profesyonel hizmetler sunar. Markaların dijital dünyada fark yaratmasını sağlamak için özgün tasarımlar, kullanıcı dostu arayüzler ve stratejik içerik üretimi ile güçlü çözümler üretiriz.
-
-        Türkiye merkezli dijital ajans olan Kement Studios, modern web sitesi tasarımı, responsive mobil uyumlu arayüz geliştirme, SEO uyumlu içerik üretimi, sosyal medya içerik planlaması ve yönetimi, logo tasarımı, marka kimliği oluşturma, reklam kampanyası yönetimi gibi hizmetlerle hem bireysel girişimcilere hem de kurumsal markalara hizmet vermektedir.
-
-        Web tasarım ajansı arayanlar, profesyonel logo tasarımı hizmeti almak isteyenler, markasını dijitalde büyütmek isteyen işletme sahipleri, kurumsal kimliğini dijital ortama taşımak isteyen firmalar ve sosyal medya yönetimiyle hedef kitlesine ulaşmak isteyen girişimciler için Kement Studios doğru adrestir.
-
-        Özgün tasarım anlayışı, müşteri memnuniyeti odaklı yaklaşımı ve yaratıcı çözümleriyle Kement Studios, dijitalde başarıya ulaşmak isteyen tüm markalar için stratejik bir iş ortağıdır. Web sitenizi Google'da üst sıralara taşımak, markanızın dijital kimliğini güçlendirmek ve potansiyel müşterilere ulaşmak için bizim
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
